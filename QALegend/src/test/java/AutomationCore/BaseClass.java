@@ -4,7 +4,9 @@ import java.time.Duration;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.safari.SafariDriver;
+import org.testng.annotations.AfterMethod;
 
 public class BaseClass {
 	
@@ -16,9 +18,9 @@ public WebDriver driver; // we create an instance for the interface WebDriver ca
 		if(browsername.equalsIgnoreCase("chrome")) {
 			driver = new ChromeDriver();
 		}
-		/*else if (browsername.equalsIgnoreCase("firefox")) {
+		else if (browsername.equalsIgnoreCase("firefox")) {
 			driver = new FirefoxDriver();
-		}*/
+		}
 		else if (browsername.equalsIgnoreCase("Safari")) {
 			driver = new SafariDriver();
 		}
@@ -27,7 +29,13 @@ public WebDriver driver; // we create an instance for the interface WebDriver ca
 		}
 		//set implict wait
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+		driver.manage().window().maximize();
 		return driver;
+	}
+	
+	@AfterMethod
+	public void closeBrowser() {
+		driver.close();
 	}
 
 }

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<suite name="Suite">
+<listeners>
+<listener class-name="TestCases.Listeners"></listener>
+</listeners>
+  <test thread-count="5" name="Test">
+  <groups>
+  <run>
+  <include name="regression"></include>
+  </run>
+  </groups>
+     <parameter name="Browser" value="chrome"></parameter>
+     <classes>
+   <class name="TestCases.QALegendClientTest"/>    
+   <class name="TestCases.QAlegendTeamMemberTest"/>
+   <class name="TestCases.QALegendLeaveTest"/>
+   
+    </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->

@@ -28,6 +28,10 @@ public class WaitUtility {
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(Constant.EXPLICITWAIT));
 		wait.until(ExpectedConditions.visibilityOf(element));
 	}
+	public static void waitForInVisibilityofElement(WebDriver driver,WebElement element) {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(Constant.EXPLICITWAIT));
+		wait.until(ExpectedConditions.invisibilityOf(element));
+	}
 	
 	
 	

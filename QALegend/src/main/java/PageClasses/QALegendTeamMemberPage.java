@@ -9,6 +9,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import Utilities.PageUtilities;
+import Utilities.WaitUtility;
 
 public class QALegendTeamMemberPage {
 	WebDriver driver;
@@ -36,9 +37,18 @@ public class QALegendTeamMemberPage {
 	WebElement deletebutton;
 	@FindBy(id="confirmDeleteButton")
 	WebElement confirmdeletebutton;
+	@FindBy(xpath = "//div[@class='modal-content']")
+	WebElement addteammembermodal;
 	
 	
-	public void addMember(String fname,String lname,String jobtitle,String email,String password) {
+	public QALegendTeamMemberPage(WebDriver driver) {
+		// TODO Auto-generated constructor stub
+		this.driver=driver;
+		PageFactory.initElements(driver, this);
+	}
+	
+	
+	public QALegendTeamMemberPage addMember(String fname,String lname,String jobtitle,String email,String password) {
 		PageUtilities.enterText(firstnamefield, fname);
 		PageUtilities.enterText(lastnamefield, lname);
 		PageUtilities.clickonanElement(nextbutton);
@@ -47,32 +57,33 @@ public class QALegendTeamMemberPage {
         PageUtilities.enterText(emailField, email);
         PageUtilities.enterText(passwordFieldElement, password);
         PageUtilities.clickonanElement(savebuttonElement);
+        return this;
 	}
 	
-	public QALegendTeamMemberPage(WebDriver driver) {
-		// TODO Auto-generated constructor stub
-		this.driver=driver;
-		PageFactory.initElements(driver, this);
-	}
+	
 
-    public void clickonAddMember() {
+    public QALegendTeamMemberPage clickonAddMember() {
     	PageUtilities.clickonanElement(addmemberbutton);
+    	return this;
     }
 
-	public void searchMember(String membername) throws InterruptedException {
-		Thread.sleep(3000);
+	public QALegendTeamMemberPage searchMember(String membername) {
+		WaitUtility.waitForInVisibilityofElement(driver, addteammembermodal);
 		PageUtilities.enterText(searchbox, membername);
+		return this;
 	}
 	public boolean cellvalueFind() {
 		
 		return(teammembercellvalue.isDisplayed());
 		
 	}
-	public void clickonDelete() {
+	public QALegendTeamMemberPage clickonDelete() {
 		PageUtilities.clickonanElement(deletebutton);
+		return this;
 	}
-	public void confirmDeletepopup() {
+	public QALegendTeamMemberPage confirmDeletepopup() {
 		PageUtilities.clickonanElement(confirmdeletebutton);
+		return this;
 	}
 	
 	public String confirmDeletion() {

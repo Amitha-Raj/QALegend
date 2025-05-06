@@ -55,11 +55,11 @@ function toggleAllBoxes() {
 <body>
 <h2 align='center'>Test</h2><table border='1' align="center">
 <tr>
-<td>Tests passed/Failed/Skipped:</td><td>0/1/0</td>
+<td>Tests passed/Failed/Skipped:</td><td>3/0/1</td>
 </tr><tr>
-<td>Started on:</td><td>Tue Apr 29 22:30:23 IST 2025</td>
+<td>Started on:</td><td>Tue May 06 19:03:43 IST 2025</td>
 </tr>
-<tr><td>Total time:</td><td>9 seconds (9814 ms)</td>
+<tr><td>Total time:</td><td>28 seconds (28647 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -67,8 +67,8 @@ function toggleAllBoxes() {
 </tr>
 </table><p/>
 <small><i>(Hover the method name to see the test class name)</i></small><p/>
-<table width='100%' border='1' class='invocation-failed'>
-<tr><td colspan='4' align='center'><b>FAILED TESTS</b></td></tr>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
 <tr><td><b>Test method</b></td>
 <td><b>Attribute(s)</b></td>
 <td width="30%"><b>Exception</b></td>
@@ -76,16 +76,40 @@ function toggleAllBoxes() {
 <td><b>Instance</b></td>
 </tr>
 <tr>
+<td title='TestCases.QALegendClientTest.deleteClient()'><b>deleteClient</b><br>Test class: TestCases.QALegendClientTest</td>
+<td></td>
+<td>4</td>
+<td>TestCases.QALegendClientTest@53976f5c</td></tr>
+<tr>
 <td title='TestCases.QALegendClientTest.addClient()'><b>addClient</b><br>Test class: TestCases.QALegendClientTest</td>
-<td><div><pre>org.openqa.selenium.ElementNotInteractableException: element not interactable
+<td></td>
+<td>3</td>
+<td>TestCases.QALegendClientTest@53976f5c</td></tr>
+<tr>
+<td title='TestCases.QALegendClientTest.editClient()'><b>editClient</b><br>Test class: TestCases.QALegendClientTest</td>
+<td></td>
+<td>5</td>
+<td>TestCases.QALegendClientTest@53976f5c</td></tr>
+</table><p>
+<table width='100%' border='1' class='invocation-skipped'>
+<tr><td colspan='4' align='center'><b>SKIPPED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td><b>Attribute(s)</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='TestCases.QALegendClientTest.deleteClient()'><b>deleteClient</b><br>Test class: TestCases.QALegendClientTest</td>
+<td><div><pre>org.openqa.selenium.ElementClickInterceptedException: element click intercepted: Element &lt;span class=&quot;fa fa-check-circle&quot;&gt;&lt;/span&gt; is not clickable at point (877, 592). Other element would receive the click: &lt;button type=&quot;button&quot; class=&quot;btn btn-default&quot; data-dismiss=&quot;modal&quot;&gt;...&lt;/button&gt;
   (Session info: chrome=135.0.7049.115)
 Build info: version: &apos;4.29.0&apos;, revision: &apos;5fc1ec94cb&apos;
 System info: os.name: &apos;Mac OS X&apos;, os.arch: &apos;x86_64&apos;, os.version: &apos;15.3.2&apos;, java.version: &apos;21.0.5&apos;
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [c055f68a4d8f660b5aac404857529587, sendKeysToElement {id=f.61189CB1A615EB329C49B59BAE165087.d.2F49603637331318820ED3C8EBBD70AC.e.76, value=[Ljava.lang.CharSequence;@59529ee}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 135.0.7049.115, chrome: {chromedriverVersion: 135.0.7049.114 (63fd8a7d9d0..., userDataDir: /var/folders/6s/gj2crlp90dx...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:51454}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: mac, proxy: Proxy(), se:cdp: ws://localhost:51454/devtoo..., se:cdpVersion: 135.0.7049.115, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Element: [[ChromeDriver: chrome on mac (c055f68a4d8f660b5aac404857529587)] -&gt; xpath: //div[@id=&apos;client-table_filter&apos;]//descendant::input]
-Session ID: c055f68a4d8f660b5aac404857529587
+Command: [aea52367f3ac5157c5d1234a8911474b, clickElement {id=f.DDFBE6C57310B2805D6F2362C1A63EB1.d.70C2ED37F9B7900D465B5B414B6874DF.e.120}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 135.0.7049.115, chrome: {chromedriverVersion: 135.0.7049.114 (63fd8a7d9d0..., userDataDir: /var/folders/6s/gj2crlp90dx...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:60589}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: mac, proxy: Proxy(), se:cdp: ws://localhost:60589/devtoo..., se:cdpVersion: 135.0.7049.115, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on mac (aea52367f3ac5157c5d1234a8911474b)] -&gt; xpath: //span[@class=&apos;fa fa-check-circle&apos;]]
+Session ID: aea52367f3ac5157c5d1234a8911474b
 	at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
 	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
 	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
@@ -94,23 +118,23 @@ Session ID: c055f68a4d8f660b5aac404857529587
 	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
 	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:545)
 	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:223)
-	at org.openqa.selenium.remote.RemoteWebElement.sendKeys(RemoteWebElement.java:110)
+	at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:76)
 	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:51)
-	at jdk.proxy2/jdk.proxy2.$Proxy12.sendKeys(Unknown Source)
-	at Utilities.PageUtilities.enterText(PageUtilities.java:19)
-	at PageClasses.QALegendClientPage.searchCLient(QALegendClientPage.java:60)
-	at TestCases.QALegendClientTest.addClient(QALegendClientTest.java:51)
+	at jdk.proxy2/jdk.proxy2.$Proxy13.click(Unknown Source)
+	at Utilities.PageUtilities.clickonanElement(PageUtilities.java:16)
+	at PageClasses.QALegendClientPage.addClient(QALegendClientPage.java:69)
+	at TestCases.QALegendClientTest.deleteClient(QALegendClientTest.java:81)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
-... Removed 30 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace2087640468", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace2087640468'><pre>org.openqa.selenium.ElementNotInteractableException: element not interactable
+... Removed 30 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace993004934", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace993004934'><pre>org.openqa.selenium.ElementClickInterceptedException: element click intercepted: Element &lt;span class=&quot;fa fa-check-circle&quot;&gt;&lt;/span&gt; is not clickable at point (877, 592). Other element would receive the click: &lt;button type=&quot;button&quot; class=&quot;btn btn-default&quot; data-dismiss=&quot;modal&quot;&gt;...&lt;/button&gt;
   (Session info: chrome=135.0.7049.115)
 Build info: version: &apos;4.29.0&apos;, revision: &apos;5fc1ec94cb&apos;
 System info: os.name: &apos;Mac OS X&apos;, os.arch: &apos;x86_64&apos;, os.version: &apos;15.3.2&apos;, java.version: &apos;21.0.5&apos;
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [c055f68a4d8f660b5aac404857529587, sendKeysToElement {id=f.61189CB1A615EB329C49B59BAE165087.d.2F49603637331318820ED3C8EBBD70AC.e.76, value=[Ljava.lang.CharSequence;@59529ee}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 135.0.7049.115, chrome: {chromedriverVersion: 135.0.7049.114 (63fd8a7d9d0..., userDataDir: /var/folders/6s/gj2crlp90dx...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:51454}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: mac, proxy: Proxy(), se:cdp: ws://localhost:51454/devtoo..., se:cdpVersion: 135.0.7049.115, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Element: [[ChromeDriver: chrome on mac (c055f68a4d8f660b5aac404857529587)] -&gt; xpath: //div[@id=&apos;client-table_filter&apos;]//descendant::input]
-Session ID: c055f68a4d8f660b5aac404857529587
+Command: [aea52367f3ac5157c5d1234a8911474b, clickElement {id=f.DDFBE6C57310B2805D6F2362C1A63EB1.d.70C2ED37F9B7900D465B5B414B6874DF.e.120}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 135.0.7049.115, chrome: {chromedriverVersion: 135.0.7049.114 (63fd8a7d9d0..., userDataDir: /var/folders/6s/gj2crlp90dx...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:60589}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: mac, proxy: Proxy(), se:cdp: ws://localhost:60589/devtoo..., se:cdpVersion: 135.0.7049.115, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on mac (aea52367f3ac5157c5d1234a8911474b)] -&gt; xpath: //span[@class=&apos;fa fa-check-circle&apos;]]
+Session ID: aea52367f3ac5157c5d1234a8911474b
 	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:486)
@@ -122,14 +146,14 @@ Session ID: c055f68a4d8f660b5aac404857529587
 	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
 	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:545)
 	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:223)
-	at org.openqa.selenium.remote.RemoteWebElement.sendKeys(RemoteWebElement.java:110)
+	at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:76)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
 	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:51)
-	at jdk.proxy2/jdk.proxy2.$Proxy12.sendKeys(Unknown Source)
-	at Utilities.PageUtilities.enterText(PageUtilities.java:19)
-	at PageClasses.QALegendClientPage.searchCLient(QALegendClientPage.java:60)
-	at TestCases.QALegendClientTest.addClient(QALegendClientTest.java:51)
+	at jdk.proxy2/jdk.proxy2.$Proxy13.click(Unknown Source)
+	at Utilities.PageUtilities.clickonanElement(PageUtilities.java:16)
+	at PageClasses.QALegendClientPage.addClient(QALegendClientPage.java:69)
+	at TestCases.QALegendClientTest.deleteClient(QALegendClientTest.java:81)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
 	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
@@ -158,7 +182,7 @@ Session ID: c055f68a4d8f660b5aac404857529587
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
 </pre></div></td>
 <td>3</td>
-<td>TestCases.QALegendClientTest@333291e3</td></tr>
+<td>TestCases.QALegendClientTest@53976f5c</td></tr>
 </table><p>
 </body>
 </html>

@@ -3,6 +3,8 @@ package TestCases;
 import org.testng.annotations.Test;
 import org.testng.AssertJUnit;
 import org.testng.annotations.Test;
+import org.testng.AssertJUnit;
+import org.testng.annotations.Test;
 import org.testng.annotations.Test;
 import java.io.FileInputStream;
 import java.util.Properties;
@@ -18,6 +20,7 @@ import PageClasses.QALegendHomePage;
 import PageClasses.QALegendLeavePage;
 import PageClasses.QALegendLoginPage;
 import PageClasses.QALegendTeamMemberPage;
+import Utilities.RetryAnalyser;
 
 public class QALegendLeaveTest extends BaseClass{
 	WebDriver driver;
@@ -27,7 +30,7 @@ public class QALegendLeaveTest extends BaseClass{
 	Properties prop;
 	FileInputStream fis;
 	
-	@BeforeMethod
+	@BeforeMethod(groups = {"regression","Sanity","Smoke"})
 	@Parameters({"Browser"})
 	public void Initialization(String browser) throws Exception {
 		driver=browserinitialisation(browser);
@@ -42,30 +45,30 @@ public class QALegendLeaveTest extends BaseClass{
 		prop.load(fis);
 	}
 	
-	@Test
-	public void assignLeave() throws InterruptedException  {
+	@Test (priority = 1,groups = {"regression"},retryAnalyzer = RetryAnalyser.class)
+	public void assignLeave() {
 		
 		loginPage.loginToQALegend(prop.getProperty("username"),prop.getProperty("password"));
 		homePage.clickonLeaveMenu();
 		leavePage.clickonAssignLeave();
 		leavePage.assignLeave(prop.getProperty("leavereason"));
 		leavePage.searchLeavebyName();
-		AssertJUnit.assertEquals(leavePage.isLeaveAssigned(),true);
+		Assert.assertEquals(leavePage.isLeaveAssigned(),true);
 	}
 	
-	@Test
-	public void applyLeave() throws InterruptedException {
+	@Test (priority = 2,groups= {"Sanity"},retryAnalyzer = RetryAnalyser.class)
+	public void applyLeave() {
 		loginPage.loginToQALegend(prop.getProperty("username"),prop.getProperty("password"));
 		homePage.clickonLeaveMenu();
 		leavePage.clickonApplyLeave();
 		leavePage.applyLeave(prop.getProperty("leavereason"));
 		leavePage.searchPendingLeavesByDate();
-		AssertJUnit.assertEquals(leavePage.isLeaveAssigned(),true);
+		Assert.assertEquals(leavePage.isLeaveAssigned(),true);
 		
 		
 	}
-	@Test
-	public void approveLeave() throws InterruptedException {
+	@Test(priority = 3,groups = {"Sanity"},retryAnalyzer = RetryAnalyser.class)
+	public void approveLeave(){
 		loginPage.loginToQALegend(prop.getProperty("username"),prop.getProperty("password"));
 		homePage.clickonLeaveMenu();
 		leavePage.clickonApplyLeave();
@@ -74,10 +77,10 @@ public class QALegendLeaveTest extends BaseClass{
 		leavePage.clickonEditLeave();
 		leavePage.approveLeave();
 		leavePage.searchallapplicationbyName(prop.getProperty("applicantname"));
-		AssertJUnit.assertEquals(leavePage.isLeaveApproved(), true);
+		Assert.assertEquals(leavePage.isLeaveApproved(), true);
 	}
-	@Test
-	public void rejectLeave() throws InterruptedException {
+	@Test(priority = 4,groups = {"Sanity"},retryAnalyzer = RetryAnalyser.class)
+	public void rejectLeave(){
 		loginPage.loginToQALegend(prop.getProperty("username"),prop.getProperty("password"));
 		homePage.clickonLeaveMenu();
 		leavePage.clickonApplyLeave();
@@ -86,11 +89,11 @@ public class QALegendLeaveTest extends BaseClass{
 		leavePage.clickonEditLeave();
 		leavePage.rejectLeave();
 		leavePage.searchallapplicationbyName(prop.getProperty("applicantname"));
-		AssertJUnit.assertEquals(leavePage.isLeaveRejected(), true);
+		Assert.assertEquals(leavePage.isLeaveRejected(), true);
 	}
 	
-	@Test
-	public void cancelLeave() throws InterruptedException {
+	@Test(priority = 5,groups = {"Smoke"},retryAnalyzer = RetryAnalyser.class)
+	public void cancelLeave(){
 		loginPage.loginToQALegend(prop.getProperty("username"),prop.getProperty("password"));
 		homePage.clickonLeaveMenu();
 		leavePage.clickonApplyLeave();
@@ -99,12 +102,12 @@ public class QALegendLeaveTest extends BaseClass{
 		leavePage.clickonEditLeave();
 		leavePage.cancelLeave();
 		leavePage.searchallapplicationbyName(prop.getProperty("applicantname"));
-		AssertJUnit.assertEquals(leavePage.isLeaveCancelled(), true);
+		Assert.assertEquals(leavePage.isLeaveCancelled(), true);
 		
 	}
 	
-	@Test
-	public void deleteappliedLeave() throws InterruptedException {
+	@Test(priority = 6,groups =  {"Smoke"},retryAnalyzer = RetryAnalyser.class)
+	public void deleteappliedLeave(){
 		loginPage.loginToQALegend(prop.getProperty("username"),prop.getProperty("password"));
 		homePage.clickonLeaveMenu();
 		leavePage.clickonApplyLeave();
@@ -112,7 +115,7 @@ public class QALegendLeaveTest extends BaseClass{
 		leavePage.searchPendingLeavesByDate();
 		leavePage.clickonDeleteLeave();
 		leavePage.deleteLeaveRequest();
-		AssertJUnit.assertEquals(leavePage.isLeaveDeleted(),"No record found.");
+		Assert.assertEquals(leavePage.isLeaveDeleted(),"No record found.");
 	}
 
 }

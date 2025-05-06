@@ -1,12 +1,7 @@
 package PageClasses;
 
-import java.time.Duration;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-import java.util.Date;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Properties;
+
+
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -17,14 +12,13 @@ import org.openqa.selenium.support.PageFactory;
 import Utilities.DateUtility;
 import Utilities.PageUtilities;
 import Utilities.WaitUtility;
-import net.bytebuddy.asm.Advice.Return;
-import net.bytebuddy.asm.MemberSubstitution.FieldValue;
+
 
 public class QALegendLeavePage {
 	
 	WebDriver driver;
 	String leaveapplicantname;
-	Properties prop;
+	
 	
 	@FindBy(xpath ="//a[@title=\"Assign leave\"]")
 	WebElement assignleavebutton;
@@ -68,6 +62,8 @@ public class QALegendLeavePage {
     WebElement confirmDeletebutton;
     @FindBy(xpath="//tr[@class='odd'or @class='even']")
 	WebElement leavecellvalue;
+    @FindBy(xpath = "//div[@class='modal-content']")
+	WebElement leavemodal;
 
 	
 	
@@ -80,11 +76,12 @@ public class QALegendLeavePage {
 	}
 
 
-	public void clickonAssignLeave() {
+	public QALegendLeavePage clickonAssignLeave() {
 		PageUtilities.clickonanElement(assignleavebutton);
+		return this;
 	}
 	
-	public void assignLeave(String reason)  {
+	public QALegendLeavePage assignLeave(String reason)  {
 		
 	    PageUtilities.clickonanElement(teammemberdropdown);
 	    leaveapplicantname =teammembername.getText();
@@ -96,54 +93,59 @@ public class QALegendLeavePage {
 		PageUtilities.clickonanElement(currentDate);
 		PageUtilities.enterText(leavereason,reason);
 		PageUtilities.clickonanElement(submitleavebutton);
+		return this;
 		
 	}
-	public void searchLeavebyName() throws InterruptedException {
-		//WaitUtility.waitForVisibilityofElement(driver,allleaveapplicationtab);
-		Thread.sleep(5000);
+	public QALegendLeavePage searchLeavebyName(){
+		WaitUtility.waitForInVisibilityofElement(driver, leavemodal);
 		PageUtilities.clickonanElement(allleaveapplicationtab);
 		PageUtilities.enterText(leavesearch, leaveapplicantname);
+		return this;
 		
 	}
    public boolean checkLeaveAssigned(){
 	  
 	   return(leavecellvalue.isDisplayed());
    }
-   public void clickonApplyLeave() {
+   public QALegendLeavePage clickonApplyLeave() {
 	   PageUtilities.clickonanElement(applyleavebutton);
+	   return this;
    }
-   public void applyLeave(String reason) {
+   public QALegendLeavePage applyLeave(String reason) {
 	   PageUtilities.clickonanElement(leavetype);
 	   PageUtilities.clickonanElement(leavename);
 	   PageUtilities.clickonanElement(leavedate);
 	   PageUtilities.clickonanElement(currentDate); 
 	   PageUtilities.enterText(leavereason,reason);
 	   PageUtilities.clickonanElement(submitleavebutton);
+	   return this;
 	  
    }
-   public void searchPendingLeavesByDate() throws InterruptedException {
-		//WaitUtility.waitForVisibilityofElement(driver, pendingapprovalsearch);
-		Thread.sleep(5000);
+   public QALegendLeavePage searchPendingLeavesByDate(){
+		WaitUtility.waitForInVisibilityofElement(driver, leavemodal);
 		PageUtilities.clickonanElement(pendingapprovaltab); 
-		PageUtilities.enterText(pendingapprovalsearch,DateUtility.getCurrentDate());   
+		PageUtilities.enterText(pendingapprovalsearch,DateUtility.getCurrentDate()); 
+		return this;
 		
 	}
-   public void searchallapplicationbyName(String name) throws InterruptedException {
-		//WaitUtility.waitForVisibilityofElement(driver,allleaveapplicationtab);
-		Thread.sleep(5000);
+   public QALegendLeavePage searchallapplicationbyName(String name){
+	    WaitUtility.waitForInVisibilityofElement(driver, leavemodal);
 		PageUtilities.clickonanElement(allleaveapplicationtab);
 		PageUtilities.enterText(leavesearch,name);
+		return this;
        
 		
 	}
   
    
-  public void clickonEditLeave() {
+  public QALegendLeavePage clickonEditLeave() {
 	  PageUtilities.clickonanElement(editleave);
+	  return this;
   }
-  public void approveLeave() {
+  public QALegendLeavePage approveLeave() {
 	  WaitUtility.waitForVisibilityofElement(driver, approveleavebutton);
 	  PageUtilities.clickonanElement(approveleavebutton);
+	  return this;
   }
 
   
@@ -179,21 +181,25 @@ public class QALegendLeavePage {
 	  WebElement element=driver.findElement(By.xpath(dateAndStatusXpathConstructor(DateUtility.getCurrentDate(),"Canceled")));
 	  return (element.isDisplayed());
  }
-  public void rejectLeave() {
+  public QALegendLeavePage rejectLeave() {
 	  PageUtilities.clickonanElement(rejectleaveButton);
+	  return this;
   }
-  public void clickonDeleteLeave() {
+  public QALegendLeavePage clickonDeleteLeave() {
 	  PageUtilities.clickonanElement(deleteleavElement);
+	  return this;
   }
-  public void deleteLeaveRequest() {
+  public QALegendLeavePage deleteLeaveRequest() {
 	  PageUtilities.clickonanElement(confirmDeletebutton);
+	  return this;
   }
   public String isLeaveDeleted() {
 	  WaitUtility.waitForTexttoBePresentinElement(driver, leavecellvalue,"No record found." );
 	  return (leavecellvalue.getText());
   }
-  public void cancelLeave() {
+  public QALegendLeavePage cancelLeave() {
 	  PageUtilities.clickonanElement(cancelleaveButton);
+	  return this;
   }
    
 }

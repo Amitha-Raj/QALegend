@@ -7,6 +7,8 @@ import org.testng.AssertJUnit;
 import org.testng.annotations.Test;
 import org.testng.AssertJUnit;
 import org.testng.annotations.Test;
+import org.testng.AssertJUnit;
+import org.testng.annotations.Test;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -31,6 +33,7 @@ import PageClasses.QALegendLoginPage;
 import PageClasses.QALegendTeamMemberPage;
 import Utilities.ExcelUtility;
 import Utilities.Fakerutility;
+import Utilities.RetryAnalyser;
 
 public class QAlegendTeamMemberTest extends BaseClass{
 	WebDriver driver;
@@ -40,7 +43,7 @@ public class QAlegendTeamMemberTest extends BaseClass{
 	Properties prop;
 	FileInputStream fis;
 	
-	@BeforeMethod
+	@BeforeMethod(groups = {"regression"})
 	@Parameters({"Browser"})
 	public void Initialization(String browser) throws Exception {
 		driver=browserinitialisation(browser);
@@ -53,8 +56,8 @@ public class QAlegendTeamMemberTest extends BaseClass{
 		fis=new FileInputStream(basePath);
 		prop.load(fis);
 	}
-	@Test
-	public void addTeamMember() throws InterruptedException {
+	@Test(priority = 1,groups = {"regression"},retryAnalyzer = RetryAnalyser.class)
+	public void addTeamMember(){
 		loginPage.loginToQALegend(prop.getProperty("username"),prop.getProperty("password"));
 		homePage.clickonTeamMemberMenu();
 		teamMemberPage.clickonAddMember();
@@ -62,13 +65,12 @@ public class QAlegendTeamMemberTest extends BaseClass{
 		String lastname=Fakerutility.getFakeLastName();
 		String emailid="teammember"+Fakerutility.randomNumberGenerator()+"@gmail.com";
 		teamMemberPage.addMember(firstname, lastname,prop.getProperty("teammemberrole"),emailid ,prop.getProperty("teammemberpassword"));
-		Thread.sleep(5000);
 		teamMemberPage.searchMember(emailid);
-		AssertJUnit.assertEquals(teamMemberPage.cellvalueFind(), true);
+		Assert.assertEquals(teamMemberPage.cellvalueFind(), true);
 		
 	}
-	@Test
-	public void deleteTeamMember() throws InterruptedException, IOException {
+	@Test(priority = 2,groups = {"regression"},retryAnalyzer = RetryAnalyser.class	)
+	public void deleteTeamMember() throws IOException  {
 		loginPage.loginToQALegend(prop.getProperty("username"),prop.getProperty("password"));
 		homePage.clickonTeamMemberMenu();
 		teamMemberPage.clickonAddMember();
@@ -78,12 +80,11 @@ public class QAlegendTeamMemberTest extends BaseClass{
 		String jobtitle=ExcelUtility.readStringData(2, 3, "Teammembers", Constant.EXCELFILEPATH);
 		String password=ExcelUtility.readStringData(2, 4, "Teammembers", Constant.EXCELFILEPATH);
 		teamMemberPage.addMember(firstname, lastname,jobtitle,emailid ,password);
-		Thread.sleep(5000);
 		teamMemberPage.searchMember(emailid);
 		teamMemberPage.clickonDelete();
 		teamMemberPage.confirmDeletepopup();
 		teamMemberPage.searchMember(emailid);
-		AssertJUnit.assertEquals(teamMemberPage.confirmDeletion(), "No record found.");
+		Assert.assertEquals(teamMemberPage.confirmDeletion(), "No record found.");
 		
 		
 	}

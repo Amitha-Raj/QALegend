@@ -22,14 +22,17 @@ public class QALegendHomePage {
 		PageFactory.initElements(driver, this);
 	}
 
-	public void clickonTeamMemberMenu() {
+	public QALegendHomePage clickonTeamMemberMenu() {
 		PageUtilities.clickonanElement(teamMemberoption);
+		return this;
 	}
-	public void clickonLeaveMenu() {
+	public QALegendHomePage clickonLeaveMenu() {
 		PageUtilities.clickonanElement(leaveoption);
+		return this;
 	}
-	public void clickonClientMenu() {
+	public QALegendHomePage clickonClientMenu() {
 		PageUtilities.clickonanElement(clientoption);
+		return this;
 	}
 
 }
