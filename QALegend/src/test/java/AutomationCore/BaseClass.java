@@ -1,12 +1,16 @@
 package AutomationCore;
 
+import java.io.IOException;
 import java.time.Duration;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.safari.SafariDriver;
+import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
+
+import Utilities.Screenshotutility;
 
 public class BaseClass {
 	
@@ -32,10 +36,14 @@ public WebDriver driver; // we create an instance for the interface WebDriver ca
 		driver.manage().window().maximize();
 		return driver;
 	}
-	
 	@AfterMethod
-	public void closeBrowser() {
-		driver.close();
+	public void afterMethod(ITestResult itResult) throws IOException {
+		if(itResult.getStatus()==ITestResult.FAILURE) {
+			Screenshotutility sc=new Screenshotutility();
+	    }
+		if(driver!=null) {
+			driver.quit();
+		}
 	}
 
 }
