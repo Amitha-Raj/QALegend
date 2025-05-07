@@ -40,6 +40,7 @@ public WebDriver driver; // we create an instance for the interface WebDriver ca
 	public void afterMethod(ITestResult itResult) throws IOException {
 		if(itResult.getStatus()==ITestResult.FAILURE) {
 			Screenshotutility sc=new Screenshotutility();
+			sc.captureFailureScreenshot(driver, itResult.getName());
 	    }
 		if(driver!=null) {
 			driver.quit();
