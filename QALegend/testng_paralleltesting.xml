@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+<listeners>
+<listener class-name="TestCases.Listeners"></listener>
+</listeners>
+  <test thread-count="2" name="Test" parallel="methods">
+     <parameter name="Browser" value="chrome"></parameter>
+     <classes>
+      <class name="TestCases.QALegendClientTest">
+      <methods>
+      <include name="addClient"></include>
+      <include name="editClient"></include>
+      <include name="deleteClient"></include>
+      </methods>
+      </class>    
+   <!-- <class name="TestCases.QAlegendTeamMemberTest"/>
+      <class name="TestCases.QALegendLeaveTest"/>
+   -->   
+    </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->
