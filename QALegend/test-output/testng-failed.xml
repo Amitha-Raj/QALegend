@@ -7,13 +7,13 @@
   <test thread-count="5" name="Test(failed)">
     <parameter name="Browser" value="chrome"/>
     <classes>
-      <class name="TestCases.QALegendLeaveTest">
+      <class name="TestCases.QALegendClientTest">
         <methods>
+          <include name="afterMethod"/>
           <include name="Initialization"/>
-          <include name="deleteappliedLeave"/>
-          <include name="closeBrowser"/>
+          <include name="addClient"/>
         </methods>
-      </class> <!-- TestCases.QALegendLeaveTest -->
+      </class> <!-- TestCases.QALegendClientTest -->
     </classes>
   </test> <!-- Test(failed) -->
 </suite> <!-- Failed suite [Suite] -->

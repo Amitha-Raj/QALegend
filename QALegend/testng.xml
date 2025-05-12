@@ -10,8 +10,8 @@
       <class name="TestCases.QALegendClientTest">
       <methods>
       <include name="addClient"></include>
-      <include name="editClient"></include>
-      <include name="deleteClient"></include>
+     <include name="editClient"></include>
+      <include name="deleteClient"></include> 
       </methods>
       </class>    
    <!-- <class name="TestCases.QAlegendTeamMemberTest"/>

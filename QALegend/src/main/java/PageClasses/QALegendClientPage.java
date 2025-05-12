@@ -39,6 +39,10 @@ public class QALegendClientPage {
 	WebElement confirmDeleteButton;
 	@FindBy(xpath = "//div[@class='modal-content']")
 	WebElement clientmodal;
+	@FindBy(id="pre-loader")
+	WebElement loader;
+	@FindBy(id="ajaxModal")
+	WebElement modalElement;
 	
 	
 	public QALegendClientPage(WebDriver driver) {
@@ -48,6 +52,7 @@ public class QALegendClientPage {
 	}
 	
 	public QALegendClientPage clickonAddClient() {
+		WaitUtility.waitForInVisibilityofElement(driver, loader);
 		PageUtilities.clickonanElement(addclientElement);
 		return this;
 	}
@@ -79,6 +84,7 @@ public class QALegendClientPage {
 		return clientcellvalue.isDisplayed();
 	}
 	public QALegendClientPage clickonEditClient() {
+		WaitUtility.waitForInVisibilityofElement(driver, modalElement);
 		WaitUtility.waitForVisibilityofElement(driver,editbutton);
 		PageUtilities.clickonanElement(editbutton);
 		return this;
